@@ -14,7 +14,24 @@ router.get('/', async (req, res) => {
     }
 })
 
+router.post('/', async (req, res) => {
+    const user = new User({
+        firstName: req.body.firstName,
+        surName: req.body.surName,
+        gender: req.body.gender,
+        dateOfBirth: req.body.dateOfBirth,
+        passWord: req.body.passWord,
+        phoneNumber: req.body.phoneNumber,
+        email: req.body.email
+    })
 
+    try {
+        const response = await user.save()
+        res.json(response)
+    } catch (err) {
+        res.send('Err: ' + err)
+    }
+})
 
 
 
