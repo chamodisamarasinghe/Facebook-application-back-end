@@ -1,4 +1,16 @@
 const express = require('express')
-const mongoose = require('mongoose')
 const app = express()
-const port = 4000
+const router = express.Router()
+const User = require('../models/user.models')
+
+app.use(express.json())
+
+
+
+
+
+
+
+
+
+module.exports = router
