@@ -5,7 +5,14 @@ const User = require('../models/user.models')
 
 app.use(express.json())
 
-
+router.get('/', async (req, res) => {
+    try {
+        const users = await User.find()
+        res.json(users)
+    } catch (err) {
+        res.send('Err: ' + err)
+    }
+})
 
 
 
