@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const user = require('./routes/user')
+const post = require('./routes/posts')
 const app = express()
 const port = 4000
 
@@ -16,7 +17,7 @@ con.on("open", () => {
 })
 
 app.use('/users', user)
-
+app.use('/posts', post)
 
 
 
