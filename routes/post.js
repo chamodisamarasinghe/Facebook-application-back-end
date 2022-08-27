@@ -16,6 +16,25 @@ router.get('/', async (req, res) => {
 })
 
 
+router.post('/', async (req, res) => {
+    const post = new Post({
+        userId: req.body.userId,
+        date: req.body.date,
+        time: req.body.time,
+        title: req.body.title,
+        body: req.body.body
+
+    })
+
+    try {
+        const response = await post.save()
+        res.json(response)
+    } catch (err) {
+        res.send('Err: ' + err)
+    }
+})
+
+
 
 
 
